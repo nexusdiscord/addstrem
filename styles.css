@@ -17,15 +17,30 @@ body, html {
     font-size: 5rem;
     color: #fff;
     position: relative;
-    display: inline-block;
-    overflow: hidden;
-    animation: moveRandomly 5s infinite;
 }
 
-@keyframes moveRandomly {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(-10px, 10px); }
-    50% { transform: translate(10px, -10px); }
-    75% { transform: translate(-10px, -10px); }
-    100% { transform: translate(0, 0); }
+.bubble::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTU0LjUgMjAuNUM2OC4xOTYgMjAuNSA3OS41IDMxLjgwNCA3OS41IDQ1LjVDNzkuNSA1OS4xOTYgNjguMTk2IDcwLjUgNTQuNSA3MC41QzQwLjgwNCA3MC41IDI5LjUgNTkuMTk2IDI5LjUgNDUuNUMyOS41IDMxLjgwNCA0MC44MDQgMjAuNSA1NC41IDIwLjVaIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=') repeat;
+    background-size: 50px 50px;
+    clip-path: text;
+    -webkit-clip-path: text;
+    animation: bubbleAnimation 3s infinite;
+}
+
+@keyframes bubbleAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
