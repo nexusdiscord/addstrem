@@ -15,31 +15,17 @@ body, html {
 
 .bubble {
     font-size: 5rem;
-    color: transparent;
+    color: #fff;
     position: relative;
     display: inline-block;
-    background: linear-gradient(45deg, #ff00ff, #ff9900, #00ff00, #ffff00);
-    -webkit-background-clip: text;
-    background-clip: text;
     overflow: hidden;
+    animation: moveRandomly 5s infinite;
 }
 
-.bubble::before {
-    content: '';
-    position: absolute;
-    top: -150%;
-    left: -150%;
-    width: 400%;
-    height: 400%;
-    background: inherit;
-    animation: bubbleMove 5s infinite;
-}
-
-@keyframes bubbleMove {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(-50%, -50%);
-    }
+@keyframes moveRandomly {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-10px, 10px); }
+    50% { transform: translate(10px, -10px); }
+    75% { transform: translate(-10px, -10px); }
+    100% { transform: translate(0, 0); }
 }
