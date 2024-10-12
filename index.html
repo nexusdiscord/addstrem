@@ -85,14 +85,17 @@
 
               bubbleContainer.appendChild(bubble);
 
-              gsap.to(bubble, {
-                  duration: 15, // Increased duration for slower movement
-                  x: `random(-${window.innerWidth - size}, ${window.innerWidth - size})`,
-                  y: `random(-${window.innerHeight - size}, ${window.innerHeight - size})`,
-                  ease: 'sine.inOut',
-                  repeat: -1,
-                  yoyo: true,
-              });
+              function animateBubble() {
+                  gsap.to(bubble, {
+                      duration: 30, // Set duration to 30 seconds for very slow movement
+                      x: `random(-${window.innerWidth - size}, ${window.innerWidth - size})`,
+                      y: `random(-${window.innerHeight - size}, ${window.innerHeight - size})`,
+                      ease: 'sine.inOut',
+                      onComplete: animateBubble, // Recursively call to create random bouncing effect
+                  });
+              }
+
+              animateBubble();
           }
 
           // Create a single large transparent bubble
